@@ -12,21 +12,21 @@ sealed class Route(
     val icon: Int,
     val content: @Composable (backStackEntry: NavBackStackEntry) -> Unit = {}
 ) {
-    object Home : Route("Home", R.drawable.ic_home, { backStackEntry -> HomeScreen() })
-    object Search : Route("Search", R.drawable.ic_search, { backStackEntry -> SearchScreen() })
+    object Home : Route("Home", R.drawable.ic_home, { HomeScreen() })
+    object Search : Route("Search", R.drawable.ic_search, { SearchScreen() })
     object Notification : Route(
         "Notification",
         R.drawable.ic_notifications,
-        { backStackEntry -> NotificationScreen() })
+        { _ -> NotificationScreen() })
 
-    object Message : Route("Message", R.drawable.ic_dm, { backStackEntry -> MessageScreen() })
-    object Profile : Route("Profile", R.drawable.ic_profile, { backStackEntry -> ProfileScreen() })
-    object Lists : Route("Lists", R.drawable.ic_lists, { backStackEntry -> ProfileScreen() })
-    object Topics : Route("Topics", R.drawable.ic_topics, { backStackEntry -> ProfileScreen() })
+    object Message : Route("Message", R.drawable.ic_dm, { MessageScreen() })
+    object Profile : Route("Profile", R.drawable.ic_profile, { ProfileScreen() })
+    object Lists : Route("Lists", R.drawable.ic_lists, { ProfileScreen() })
+    object Topics : Route("Topics", R.drawable.ic_topics, { ProfileScreen() })
     object Bookmarks :
-        Route("Bookmarks", R.drawable.ic_bookmarks, { backStackEntry -> ProfileScreen() })
+        Route("Bookmarks", R.drawable.ic_bookmarks, { ProfileScreen() })
 
-    object Moments : Route("Moments", R.drawable.ic_moments, { backStackEntry -> ProfileScreen() })
+    object Moments : Route("Moments", R.drawable.ic_moments, { ProfileScreen() })
 }
 
 val Routes = listOf(
