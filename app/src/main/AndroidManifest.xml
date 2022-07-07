@@ -13,11 +13,19 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TwitterJetpackAndroid"
+        android:name=".TwitterApp"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TwitterJetpackAndroid"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".SplashActivity"
             android:exported="true"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
