@@ -8,9 +8,9 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
 ) : ViewModel() {
-	lateinit var navHostController: NavHostController
+    lateinit var navHostController: NavHostController
 
-	fun navigateTo(route: String) {
-		navHostController.navigate(route)
-	}
+    fun navigateTo(route: String) {
+        navHostController.navigate(route)
+    }
 }

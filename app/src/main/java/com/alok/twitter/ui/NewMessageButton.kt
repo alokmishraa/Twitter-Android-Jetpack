@@ -28,7 +28,9 @@ fun NewMessageButton() {
         Icon(
             painter = painterResource(R.drawable.ic_dm),
             null,
-            modifier = Modifier.size(26.dp).animateContentSize(),
+            modifier = Modifier
+                .size(26.dp)
+                .animateContentSize(),
             tint = Color.White
         )
     }
