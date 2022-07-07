@@ -47,3 +47,8 @@ lint/tmp/
 # lint/reports/
 
 .idea/
+
+/build
+/.gradle
+.gradle/*
+/.gradle/*
