@@ -4,15 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
 import com.alok.twitter.R
+import com.alok.twitter.ui.common.MAIN_SCREEN
 import com.alok.twitter.ui.screen.*
 
 
 sealed class Route(
     val route: String,
     val icon: Int,
-    val content: @Composable (backStackEntry: NavBackStackEntry) -> Unit = {}
+    val content: @Composable (backStackEntry: NavBackStackEntry) -> Unit = {},
 ) {
-    object Home : Route("Home", R.drawable.ic_home, { HomeScreen() })
+    object Home : Route(MAIN_SCREEN, R.drawable.ic_home, { HomeScreen() })
     object Search : Route("Search", R.drawable.ic_search, { SearchScreen() })
     object Notification : Route(
         "Notification",

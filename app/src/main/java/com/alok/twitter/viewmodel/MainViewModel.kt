@@ -9,8 +9,4 @@ import javax.inject.Inject
 class MainViewModel @Inject constructor(
 ) : ViewModel() {
     lateinit var navHostController: NavHostController
-
-    fun navigateTo(route: String) {
-        navHostController.navigate(route)
-    }
 }
