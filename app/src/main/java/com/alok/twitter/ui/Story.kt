@@ -15,10 +15,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import com.alok.twitter.R
 import com.alok.twitter.data.Story
 
 val Stories: ArrayList<Story> = arrayListOf(
@@ -75,6 +79,7 @@ fun CreateStoryCompose() {
                 verticalAlignment = Alignment.CenterVertically
             )
             {
+                println("imageurl = ${Story().profileUrl}")
                 AsyncImage(
                     model = Story().profileUrl,
                     contentDescription = "Profile Image",
@@ -128,6 +133,7 @@ fun Story(story: Story) {
             border = BorderStroke(1.5.dp, MaterialTheme.colors.primary),
             contentPadding = PaddingValues(3.5.dp),
         ) {
+            println("jaimatadi url = ${story.profileUrl}")
             AsyncImage(
                 model = story.profileUrl,
                 contentDescription = "Profile Image",
