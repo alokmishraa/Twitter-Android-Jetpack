@@ -1,0 +1,11 @@
+.gradle/file-system.probe
+.gradle/7.4/checksums/checksums.lock
+.gradle/7.4/checksums/md5-checksums.bin
+.gradle/7.4/checksums/sha1-checksums.bin
+.gradle/7.4/executionHistory/executionHistory.bin
+.gradle/7.4/executionHistory/executionHistory.lock
+.gradle/7.4/fileHashes/fileHashes.bin
+.gradle/7.4/fileHashes/fileHashes.lock
+.gradle/7.4/fileHashes/resourceHashesCache.bin
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.gradle/buildOutputCleanup/outputFiles.bin
