@@ -13,7 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
 import com.alok.twitter.screens.sign_up.SignUpViewModel
-import com.alok.twitter.ui.common.composable.*
+import com.alok.twitter.ui.common.composable.BasicButton
+import com.alok.twitter.ui.common.composable.EmailField
+import com.alok.twitter.ui.common.composable.PasswordField
+import com.alok.twitter.ui.common.composable.RepeatPasswordField
 import com.alok.twitter.ui.common.ext.basicButton
 import com.alok.twitter.ui.common.ext.fieldModifier
 import com.alok.twitter.R.string as AppText
@@ -27,8 +30,6 @@ fun SignUpScreen(
     viewModel.navHostController = rememberNavController()
     val uiState by viewModel.uiState
     val fieldModifier = Modifier.fieldModifier()
-
-    BasicToolbar(AppText.create_account)
 
     Column(
         modifier = modifier

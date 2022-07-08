@@ -17,10 +17,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.alok.twitter.ui.MainScreen
-import com.alok.twitter.ui.common.*
+import com.alok.twitter.ui.common.LOGIN_SCREEN
+import com.alok.twitter.ui.common.MAIN_SCREEN
+import com.alok.twitter.ui.common.SIGN_UP_SCREEN
+import com.alok.twitter.ui.common.SPLASH_SCREEN
 import com.alok.twitter.ui.common.snackbar.SnackbarManager
 import com.alok.twitter.ui.login.LoginScreen
-import com.alok.twitter.ui.settings.SettingsScreen
 import com.alok.twitter.ui.sign_up.SignUpScreen
 import com.alok.twitter.ui.splash.SplashScreen
 import com.alok.twitter.ui.theme.SplashTheme
@@ -79,13 +81,6 @@ fun NavGraphBuilder.makeItSoGraph(appState: SplashAppState) {
     composable(SPLASH_SCREEN) {
         SplashScreen(openAndPopUp = { route, popUp -> appState.navigateAndPopUp(route, popUp) },
             openApp = { route -> appState.navigate(route) })
-    }
-
-    composable(SETTINGS_SCREEN) {
-        SettingsScreen(
-            restartApp = { route -> appState.clearAndNavigate(route) },
-            openScreen = { route -> appState.navigate(route) }
-        )
     }
 
     composable(LOGIN_SCREEN) {

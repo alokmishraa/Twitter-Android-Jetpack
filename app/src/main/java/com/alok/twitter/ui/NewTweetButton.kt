@@ -28,7 +28,7 @@ fun NewTweetButton() {
             painter = painterResource(R.drawable.ic_compose),
             null,
             modifier = Modifier.size(26.dp),
-            tint = Color.White
+            tint = Color.White,
         )
     }
 }
