@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.alok.twitter.model.service.AccountService
 import com.alok.twitter.model.service.LogService
 import com.alok.twitter.model.service.StorageService
+import com.alok.twitter.ui.common.MAIN_SCREEN
 import com.alok.twitter.ui.common.SETTINGS_SCREEN
 import com.alok.twitter.ui.common.SIGN_UP_SCREEN
 import com.alok.twitter.ui.common.ext.isValidEmail
@@ -83,7 +84,7 @@ class SignUpViewModel @Inject constructor(
 
             storageService.updateUserId(oldUserId, newUserId) { error ->
                 if (error != null) logService.logNonFatalCrash(error)
-                else openAndPopUp(SETTINGS_SCREEN, SIGN_UP_SCREEN)
+                else openAndPopUp(MAIN_SCREEN, SIGN_UP_SCREEN)
             }
         }
     }
