@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun NotificationScreen() {
+fun NewTweetScreen() {
     val state = rememberScaffoldState()
     val scope = rememberCoroutineScope()
 
@@ -23,6 +23,6 @@ fun NotificationScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        Text("Notification Screen")
+        Text("Profile Screen")
     }
 }

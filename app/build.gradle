@@ -114,11 +114,18 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-perf-ktx'
 
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
     // -------------------------------
     // Debug Only
     // -------------------------------
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
 
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
+
+    implementation 'org.jsoup:jsoup:1.15.2'
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.11.1"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
