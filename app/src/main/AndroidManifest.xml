@@ -16,12 +16,6 @@
         android:supportsRtl="true"
         android:name=".TwitterApp"
         tools:targetApi="31">
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.TwitterJetpackAndroid"
-            android:label="@string/app_name">
-        </activity>
 
         <activity
             android:name=".SplashActivity"
