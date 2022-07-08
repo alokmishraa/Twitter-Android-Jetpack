@@ -35,7 +35,7 @@ fun DialogConfirmButton(@StringRes text: Int, action: () -> Unit) {
         onClick = action,
         colors = ButtonDefaults.buttonColors(
             backgroundColor = MaterialTheme.colors.primary,
-            contentColor = MaterialTheme.colors.onPrimary
+            contentColor = Color.White
         )
     ) {
         Text(text = stringResource(text))
@@ -48,7 +48,7 @@ fun DialogCancelButton(@StringRes text: Int, action: () -> Unit) {
         onClick = action,
         colors = ButtonDefaults.buttonColors(
             backgroundColor = MaterialTheme.colors.onPrimary,
-            contentColor = MaterialTheme.colors.primary
+            contentColor = Color.White
         )
     ) {
         Text(text = stringResource(text))

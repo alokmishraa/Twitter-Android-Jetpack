@@ -33,7 +33,7 @@ sealed class Route(
         Route("Bookmarks", R.drawable.ic_bookmarks, { ProfileScreen() })
 
     object Moments : Route("Moments", R.drawable.ic_moments, { ProfileScreen() })
-    object Settings : Route("Settings", R.drawable.ic_moments, { SettingsScreen() })
+    object Settings : Route("Settings", R.drawable.ic_exit, { SettingsScreen() })
 
 }
 

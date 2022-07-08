@@ -33,7 +33,8 @@ val bottomNavigations = listOf(
     Route.Lists,
     Route.Topics,
     Route.Bookmarks,
-    Route.Moments
+    Route.Moments,
+    Route.Settings
 )
 
 @Composable
@@ -118,7 +119,7 @@ fun ListContent(
                 )
                 Column(modifier = modifier.padding(horizontal = 25.dp)) {
                     Text(
-                        text = "Settings and Privacy",
+                        text = "Privacy Policy",
                         fontSize = 18.sp,
                         fontWeight = W500
                     )

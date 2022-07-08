@@ -1,22 +1,27 @@
 package com.alok.twitter.ui.settings
 
+import android.content.Intent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.AlertDialog
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.alok.twitter.ui.common.composable.*
+import com.alok.twitter.SplashActivity
+import com.alok.twitter.ui.common.composable.DangerousCardEditor
+import com.alok.twitter.ui.common.composable.DialogCancelButton
+import com.alok.twitter.ui.common.composable.DialogConfirmButton
+import com.alok.twitter.ui.common.composable.RegularCardEditor
 import com.alok.twitter.ui.common.ext.card
 import com.alok.twitter.ui.common.ext.spacer
+import kotlinx.coroutines.CoroutineScope
 import com.alok.twitter.R.drawable as AppIcon
 import com.alok.twitter.R.string as AppText
 
@@ -24,7 +29,9 @@ import com.alok.twitter.R.string as AppText
 @Composable
 fun SettingsScreen(
     modifier: Modifier = Modifier,
-    viewModel: SettingsViewModel = hiltViewModel()
+    viewModel: SettingsViewModel = hiltViewModel(),
+    state: ScaffoldState = rememberScaffoldState(),
+    scope: CoroutineScope = rememberCoroutineScope()
 ) {
     val uiState by viewModel.uiState
 
@@ -37,8 +44,6 @@ fun SettingsScreen(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        BasicToolbar(AppText.settings)
-
         Spacer(modifier = Modifier.spacer())
         SignOutCard { viewModel.onSignOutClick() }
         DeleteMyAccountCard { viewModel.onDeleteMyAccountClick() }
@@ -49,7 +54,7 @@ fun SettingsScreen(
 @Composable
 private fun SignOutCard(signOut: () -> Unit) {
     var showWarningDialog by remember { mutableStateOf(false) }
-
+    val context = LocalContext.current
     RegularCardEditor(AppText.sign_out, AppIcon.ic_exit, "", Modifier.card()) {
         showWarningDialog = true
     }
@@ -63,6 +68,7 @@ private fun SignOutCard(signOut: () -> Unit) {
                 DialogConfirmButton(AppText.sign_out) {
                     signOut()
                     showWarningDialog = false
+                    context.startActivity(Intent(context, SplashActivity::class.java))
                 }
             },
             onDismissRequest = { showWarningDialog = false }
@@ -74,7 +80,7 @@ private fun SignOutCard(signOut: () -> Unit) {
 @Composable
 private fun DeleteMyAccountCard(deleteMyAccount: () -> Unit) {
     var showWarningDialog by remember { mutableStateOf(false) }
-
+    val context = LocalContext.current
     DangerousCardEditor(
         AppText.delete_my_account,
         AppIcon.ic_delete_my_account,
@@ -93,6 +99,7 @@ private fun DeleteMyAccountCard(deleteMyAccount: () -> Unit) {
                 DialogConfirmButton(AppText.delete_my_account) {
                     deleteMyAccount()
                     showWarningDialog = false
+                    context.startActivity(Intent(context, SplashActivity::class.java))
                 }
             },
             onDismissRequest = { showWarningDialog = false }
