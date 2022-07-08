@@ -1,25 +1,28 @@
 package com.alok.twitter.ui.settings
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.*
+import androidx.compose.material.AlertDialog
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.alok.twitter.R.drawable as AppIcon
-import com.alok.twitter.R.string as AppText
 import com.alok.twitter.ui.common.composable.*
 import com.alok.twitter.ui.common.ext.card
 import com.alok.twitter.ui.common.ext.spacer
+import com.alok.twitter.R.drawable as AppIcon
+import com.alok.twitter.R.string as AppText
 
-@ExperimentalMaterialApi
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun SettingsScreen(
-    restartApp: (String) -> Unit,
-    openScreen: (String) -> Unit,
     modifier: Modifier = Modifier,
     viewModel: SettingsViewModel = hiltViewModel()
 ) {
@@ -37,19 +40,8 @@ fun SettingsScreen(
         BasicToolbar(AppText.settings)
 
         Spacer(modifier = Modifier.spacer())
-
-        if (uiState.isAnonymousAccount) {
-            RegularCardEditor(AppText.sign_in, AppIcon.ic_sign_in, "", Modifier.card()) {
-                viewModel.onLoginClick(openScreen)
-            }
-
-            RegularCardEditor(AppText.create_account, AppIcon.ic_create_account, "", Modifier.card()) {
-                viewModel.onSignUpClick(openScreen)
-            }
-        } else {
-            SignOutCard { viewModel.onSignOutClick(restartApp) }
-            DeleteMyAccountCard { viewModel.onDeleteMyAccountClick(restartApp) }
-        }
+        SignOutCard { viewModel.onSignOutClick() }
+        DeleteMyAccountCard { viewModel.onDeleteMyAccountClick() }
     }
 }
 
@@ -62,7 +54,7 @@ private fun SignOutCard(signOut: () -> Unit) {
         showWarningDialog = true
     }
 
-    if(showWarningDialog) {
+    if (showWarningDialog) {
         AlertDialog(
             title = { Text(stringResource(AppText.sign_out_title)) },
             text = { Text(stringResource(AppText.sign_out_description)) },
@@ -83,11 +75,16 @@ private fun SignOutCard(signOut: () -> Unit) {
 private fun DeleteMyAccountCard(deleteMyAccount: () -> Unit) {
     var showWarningDialog by remember { mutableStateOf(false) }
 
-    DangerousCardEditor(AppText.delete_my_account, AppIcon.ic_delete_my_account, "", Modifier.card()) {
+    DangerousCardEditor(
+        AppText.delete_my_account,
+        AppIcon.ic_delete_my_account,
+        "",
+        Modifier.card()
+    ) {
         showWarningDialog = true
     }
 
-    if(showWarningDialog) {
+    if (showWarningDialog) {
         AlertDialog(
             title = { Text(stringResource(AppText.delete_account_title)) },
             text = { Text(stringResource(AppText.delete_account_description)) },

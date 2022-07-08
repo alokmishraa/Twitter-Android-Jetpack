@@ -6,7 +6,10 @@ import androidx.navigation.NavHostController
 import com.alok.twitter.R
 import com.alok.twitter.ui.common.MAIN_SCREEN
 import com.alok.twitter.ui.notifications.NotificationScreen
-import com.alok.twitter.ui.screen.*
+import com.alok.twitter.ui.screen.MessageScreen
+import com.alok.twitter.ui.screen.ProfileScreen
+import com.alok.twitter.ui.screen.SearchScreen
+import com.alok.twitter.ui.settings.SettingsScreen
 import com.mutualmobile.tweetify.ui.home.HomeScreen
 
 
@@ -30,6 +33,8 @@ sealed class Route(
         Route("Bookmarks", R.drawable.ic_bookmarks, { ProfileScreen() })
 
     object Moments : Route("Moments", R.drawable.ic_moments, { ProfileScreen() })
+    object Settings : Route("Settings", R.drawable.ic_moments, { SettingsScreen() })
+
 }
 
 val Routes = listOf(
@@ -44,7 +49,8 @@ val Routes = listOf(
     Route.Lists,
     Route.Topics,
     Route.Bookmarks,
-    Route.Moments
+    Route.Moments,
+    Route.Settings
 )
 
 @Composable

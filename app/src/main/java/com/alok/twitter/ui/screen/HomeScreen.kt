@@ -6,7 +6,6 @@ import androidx.compose.material.Divider
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.alok.twitter.ui.common.SwipeProgressIndicator
@@ -17,6 +16,7 @@ import com.alok.twitter.ui.feeds.data.TweetState
 import com.alok.twitter.ui.feeds.data.TweetsViewModel
 import com.alok.twitter.ui.home.stories.ComposeStoriesHome
 import com.alok.twitter.ui.home.stories.UserStoriesRepository
+import com.alok.twitter.ui.theme.TwitterGray
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import timber.log.Timber
@@ -84,13 +84,13 @@ fun HomeScreen(
 private fun ComposeTweetADBanner() {
     Column {
         Divider(
-            color = Color.Gray,
-            thickness = 5.dp
+            color = TwitterGray,
+            thickness = 2.dp
         )
         ComposeTweetAdvertisementBanner()
         Divider(
-            color = Color.Gray,
-            thickness = 5.dp
+            color = TwitterGray,
+            thickness = 2.dp
         )
     }
 }

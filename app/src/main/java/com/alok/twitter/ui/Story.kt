@@ -3,10 +3,11 @@ package com.alok.twitter.ui
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.OutlinedButton
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.sharp.Add
 import androidx.compose.runtime.Composable
@@ -14,67 +15,25 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import coil.request.ImageRequest
-import com.alok.twitter.R
 import com.alok.twitter.data.Story
 
-val Stories: ArrayList<Story> = arrayListOf(
-    Story(
-        "Elon Musk",
-        "https://images.mktw.net/im-311693?width=620&size=1.4382022471910112"
-    ),
-    Story("Thanos", "https://i.insider.com/5ae75d4ebd967122008b4623?width=100"),
-    Story(),
-    Story("Thanos", "https://i.insider.com/5ae75d4ebd967122008b4623?width=100"),
-    Story(),
-    Story("Thanos", "https://i.insider.com/5ae75d4ebd967122008b4623?width=100"),
-    Story(),
-    Story(
-        "Elon Musk",
-        "https://images.mktw.net/im-311693?width=620&size=1.4382022471910112"
-    ),
-    Story(),
-)
-
-@Composable
-fun StoryList() {
-    LazyRow(
-        modifier = Modifier
-            .padding(top = 10.dp)
-    ) {
-        item {
-            CreateStoryCompose()
-        }
-        items(items = Stories) {
-            Story(it)
-        }
-    }
-    Divider(
-        modifier = Modifier.padding(top = 5.dp),
-        color = Color.LightGray,
-        thickness = 0.25.dp
-    )
-}
 
 @Composable
 fun CreateStoryCompose() {
     Box(
         modifier = Modifier
-            .padding(start = 15.dp, end = 18.dp)
+            .padding(start = 15.dp, end = 18.dp, top = 8.dp, bottom = 8.dp)
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Row(
                 modifier = Modifier
-                    .height(55.dp)
+                    .height(60.dp)
                     .clip(shape = CircleShape),
                 verticalAlignment = Alignment.CenterVertically
             )
@@ -84,7 +43,7 @@ fun CreateStoryCompose() {
                     model = Story().profileUrl,
                     contentDescription = "Profile Image",
                     modifier = Modifier
-                        .width(50.dp)
+                        .width(60.dp)
                         .clip(shape = CircleShape),
                 )
             }
@@ -116,39 +75,5 @@ fun CreateStoryCompose() {
             )
         }
 
-    }
-}
-
-@Composable
-fun Story(story: Story) {
-    Column(
-        modifier = Modifier
-            .padding(end = 12.dp)
-            .width(55.dp)
-    ) {
-        OutlinedButton(
-            onClick = { /*TODO*/ },
-            modifier = Modifier.size(55.dp),  //avoid the oval shape
-            shape = CircleShape,
-            border = BorderStroke(1.5.dp, MaterialTheme.colors.primary),
-            contentPadding = PaddingValues(3.5.dp),
-        ) {
-            println("jaimatadi url = ${story.profileUrl}")
-            AsyncImage(
-                model = story.profileUrl,
-                contentDescription = "Profile Image",
-                contentScale = ContentScale.FillHeight,
-                modifier = Modifier
-                    .clip(shape = CircleShape)
-                    .width(50.dp)
-            )
-        }
-        Text(
-            story.username,
-            fontSize = 14.sp,
-            color = MaterialTheme.colors.secondary,
-            overflow = TextOverflow.Ellipsis,
-            maxLines = 1,
-        )
     }
 }

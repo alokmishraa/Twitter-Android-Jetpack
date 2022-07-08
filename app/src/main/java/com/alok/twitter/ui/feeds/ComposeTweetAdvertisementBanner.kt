@@ -14,6 +14,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.alok.twitter.ui.theme.TwitterBlue
 
 
 @Composable
@@ -42,7 +43,7 @@ private fun BannerButton() {
 
         },
         shape = RoundedCornerShape(25),
-        colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.onBackground)
+        colors = ButtonDefaults.buttonColors(backgroundColor = TwitterBlue)
     ) {
         Text(
             text = "Get started",
@@ -69,7 +70,6 @@ private fun BannerTitle() {
     Text(
         "Do you need help finding COVID-19 resources?",
         modifier = Modifier.padding(4.dp),
-
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.Center,
         fontSize = 18.sp
