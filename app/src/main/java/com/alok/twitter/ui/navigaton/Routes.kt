@@ -7,6 +7,7 @@ import com.alok.twitter.R
 import com.alok.twitter.ui.common.MAIN_SCREEN
 import com.alok.twitter.ui.notifications.NotificationScreen
 import com.alok.twitter.ui.screen.MessageScreen
+import com.alok.twitter.ui.screen.PostTimeLineScreen
 import com.alok.twitter.ui.screen.ProfileScreen
 import com.alok.twitter.ui.screen.SearchScreen
 import com.alok.twitter.ui.settings.SettingsScreen
@@ -34,7 +35,7 @@ sealed class Route(
 
     object Moments : Route("Moments", R.drawable.ic_moments, { ProfileScreen() })
     object Settings : Route("Settings", R.drawable.ic_exit, { SettingsScreen() })
-
+    object PostTimeLine : Route("Post", R.drawable.ic_moments, { PostTimeLineScreen() })
 }
 
 val Routes = listOf(
@@ -43,6 +44,8 @@ val Routes = listOf(
     Route.Search,
     Route.Notification,
     Route.Message,
+
+    Route.PostTimeLine,
 
     //drawer
     Route.Profile,
